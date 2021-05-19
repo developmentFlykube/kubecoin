@@ -5,7 +5,14 @@ pragma solidity ^0.8.0;
 /**
  * @dev Interface of the ERC20 standard as defined in the EIP.
  */
-interface IERC20 {
+interface IBEP20 {
+
+    function name() public view returns (string);
+
+    function symbol() public view returns (string);
+
+    function decimals() public view returns (uint8);
+
     /**
      * @dev Returns the amount of tokens in existence.
      */
@@ -15,6 +22,8 @@ interface IERC20 {
      * @dev Returns the amount of tokens owned by `account`.
      */
     function balanceOf(address account) external view returns (uint256);
+
+    function getOwner() external view returns (address);
 
     /**
      * @dev Moves `amount` tokens from the caller's account to `recipient`.
@@ -32,7 +41,7 @@ interface IERC20 {
      *
      * This value changes when {approve} or {transferFrom} are called.
      */
-    //function allowance(address owner, address spender) external view returns (uint256);
+    function allowance(address owner, address spender) external view returns (uint256);
 
     /**
      * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.
@@ -48,7 +57,7 @@ interface IERC20 {
      *
      * Emits an {Approval} event.
      */
-    //function approve(address spender, uint256 amount) external returns (bool);
+    function approve(address spender, uint256 amount) external returns (bool);
 
     /**
      * @dev Moves `amount` tokens from `sender` to `recipient` using the
