@@ -2,17 +2,17 @@
 
 pragma solidity ^0.8.4;
 
-import './libraries/IBEP20.sol';
-import './libraries/Context.sol';
-import './libraries/Ownable.sol';
-import './libraries/SafeMath.sol';
+import './IBEP20.sol';
+import './Context.sol';
+import './Ownable.sol';
+import './SafeMath.sol';
 
-contract KubeCoin is Context, IBEP20, Ownable {
+contract NewAgeToken is Context, IBEP20, Ownable {
 
     using SafeMath for uint256;
 
-    string private _name = "KubeCoin";
-    string private _symbol = "KUBE";
+    string private _name = "NewAgeToken";
+    string private _symbol = "NEWAGE";
     uint8 private _decimals = 2;
     uint256 private _totalSupply = 360 * 10**6 * 10**2;
     mapping (address => uint256) private _balances;
