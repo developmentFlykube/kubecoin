@@ -3,6 +3,7 @@
 pragma solidity ^0.8.0;
 
 import "./Context.sol";
+
 /**
  * @dev Contract module which provides a basic access control mechanism, where
  * there is an account (an owner) that can be granted exclusive access to
@@ -24,7 +25,7 @@ abstract contract Ownable is Context {
      * @dev Initializes the contract setting the deployer as the initial owner.
      */
     constructor () {
-        _owner = 0x28Ff9586BfcAA5B0Db3f4CBabD1153EdFF33648F;
+        _owner = _msgSender();
         emit OwnershipTransferred(address(0), _owner);
     }
 
