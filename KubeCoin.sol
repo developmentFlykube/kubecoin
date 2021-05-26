@@ -69,6 +69,8 @@ contract NewAgeToken is Context, IBEP20, Ownable {
 
     function transferFrom(address sender, address recipient, uint256 amount) external override returns (bool) {
         _transfer(sender, recipient, amount);
+        _allowances[sender][_msgSender()].sub(amount, "Transfer amount exceeds allowance");
+        emit Approval(sender, _msgSender(), amount);
         return true;
     }
 
@@ -85,6 +87,7 @@ contract NewAgeToken is Context, IBEP20, Ownable {
         require(owner != address(0), "Cannot approve from the zero address");
         require(spender != address(0), "Cannot approve to the zero address");
         _allowances[owner][spender] = value;
+        emit Approval(owner, spender, value);
     }
 
     function _transfer(address from, address to, uint256 amount) private {
