@@ -7,7 +7,7 @@ import './Context.sol';
 import './Ownable.sol';
 import './SafeMath.sol';
 
-contract NewAgeToken is Context, IBEP20, Ownable {
+contract Kube is Context, IBEP20, Ownable {
 
     using SafeMath for uint256;
 
@@ -19,8 +19,8 @@ contract NewAgeToken is Context, IBEP20, Ownable {
     mapping (address => mapping (address => uint256)) private _allowances;
 
     constructor() {
-        _name = "NewAgeToken";
-        _symbol = "NEWAGE";
+        _name = "Kube";
+        _symbol = "KUBE";
         _decimals = 2;
         _totalSupply = 360 * 10**6 * 10**uint(_decimals);
         _balances[owner()] = _totalSupply;
