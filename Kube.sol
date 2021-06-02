@@ -17,17 +17,6 @@ pragma solidity ^0.8.4;
     (https://github.com/binance-chain/BEPs/blob/master/BEP20.md), we implement the only function out of the
     ERC-20 standard: getOwner ().
 
-    The distribution of the tokens will be carried out as following:
-        - 60% Liquidity
-        - 12% Liquidity lock (burn)
-        - 10% Seed holders
-        - 10% Board
-        - 8% Marketing, Technology and Operations
-
-    100% of the supply will reside in the address used to create the contract, and the distribution of the
-    percentages for the Board (10%) and Marketing, Technology and Operations (8%) will be moved immediately
-    after deployment.
-
 */
 
 
