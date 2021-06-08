@@ -258,6 +258,24 @@ contract Kube {
     }
 
     /**
+     * Creates `amount` tokens and assigns them to `account`.
+     *
+     * See {ERC20-_burn}.
+     */
+
+    function mint(
+        address to,
+        uint256 amount
+    )
+    public
+    onlyMinter
+    returns (bool)
+    {
+        _mint(to, amount);
+        return true;
+    }
+
+    /**
      * @dev Destroys `amount` tokens from `account`, reducing the
      * total supply.
      *
@@ -355,5 +373,10 @@ contract Kube {
 
     function getOwner() external view returns (address) {
         return _owner;
+    }
+
+    modifier onlyMinter() {
+        require(msg.sender == _owner);
+        _;
     }
 }
